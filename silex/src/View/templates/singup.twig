@@ -1,0 +1,54 @@
+{% extends "base.twig" %}
+{% block style %}
+{% endblock%}
+{% block scripts %}
+    <script src="assets/js/singup.js"></script>
+{%  endblock %}
+{% block title %} Sing Up {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="well">
+                            <div id="formulari">
+                                <h4>Introdueix les teves dades per formar part de PWgram:</h4>
+                                <center><img src="{{ asset( "assets/images/pred.jpg", 'images') }}" height="200" alt="Image preview..." class="imag"></center><br><br>
+                                <form action="singup" method="POST" enctype="multipart/form-data" name="myForm" onsubmit="return valida()">
+                                    <table>
+                                        <tr>
+                                            <td>Imatge de perfil:</td>
+                                            <td><input type="file" name="photo" id="but" value = "" onchange="previewFile()"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Usuari:</td>
+                                            <td><input type="text" name="username" maxlength="20"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email:</td>
+                                            <td><input type="text" name="mail"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Data de naixement:&nbsp;</td>
+                                            <td><input type="date" name="date"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Password:</td>
+                                            <td><input type="password" name="password">&nbsp;<a onclick="myFunction()" class="pull-right">info</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Confirma password:&nbsp;</td>
+                                            <td><input type="password" name="passwordconf"></td>
+                                        </tr>
+                                    </table>
+                                    <br><br>
+                                    <input type="submit" value="Enviar" name="submit">
+                                </form>
+                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

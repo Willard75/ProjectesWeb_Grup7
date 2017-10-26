@@ -1,0 +1,37 @@
+{% extends "base.twig" %}
+{% block style %}
+{% endblock%}
+
+{% block title %} Login {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="well">
+
+                       <h4>Bienvingut! Quin és el teu nom?</h4>
+                        <form action="login" method="POST">
+                            <table id="table2">
+                                <tr>
+                                    <td>Usuari:</td>
+                                    <td><input type="text" name="username"></td>
+                                </tr>
+                                <tr>
+                                    <td>Password</td>
+                                    <td><input type="password" name="password"></td>
+                                </tr>
+                            </table>
+                            <br><br>
+                            <input type="submit" value="Enviar">
+                        </form>
+
+                    <div id="caixa2">
+                        <label>Encara no ets membre? <a href="singup"><strong>Registrat!</strong><a></label>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

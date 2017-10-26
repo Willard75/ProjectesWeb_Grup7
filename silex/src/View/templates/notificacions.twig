@@ -1,0 +1,52 @@
+{% extends "base.twig" %}
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="assets/css/notificacions.css">
+{% endblock %}
+
+{% block title %} Perfil {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="well">
+                        {%  if longitud != 0%}
+                            {% for i in 0..(longitud - 1) %}
+                                <div id="noti">
+                                    <table>
+                                        <tr>
+                                            <td id = "te">
+                                                {% if consulta[i].type == 0 %}
+                                                <label class="notif">Al usuario {{ noms_usuaris[i] }} le gusta tu foto "{{ noms_imatges[i] }}".</label>
+                                                {% endif %}
+                                                {% if consulta[i].type == 1 %}
+                                                    <label class="notif">El usuario {{ noms_usuaris[i] }} ha comentado tu foto "{{ noms_imatges[i] }}".</label>
+                                                {% endif %}
+                                            </td>
+                                            <td>
+                                                <a href="notificacions/read/{{ i }}">
+                                                    <center><label class="notif">Marcar como leido</label></center>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                        {% if longitud == 0 %}
+                            <div id="noti">
+                                <table>
+                                    <tr>
+                                        <td id = "note">
+                                            <label class="notif">NO TIENES NOTIFICACIONES</label>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        {% endif %}
+                    </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

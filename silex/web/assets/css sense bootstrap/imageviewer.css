@@ -1,0 +1,129 @@
+#imag {
+	background-color: #70A7B3;
+	width:58%;
+	margin-left: 21%;
+	margin-top: 1.2%;
+	padding: 1px 0 20px 0;
+	text-align: center;
+}
+#close {
+	float: right;
+	width: 30px;
+	height: 30px;
+	margin: 10px 18% 0 0;
+}
+#foto{
+	width: 400px;
+	height: 300px;
+	margin-left: 20px;
+}
+#info{
+	width: 344px;
+	height: 222px;
+	margin-left: 10px;
+	padding: 0 10px 10px 10px;
+	display: inline-block;
+	position: relative;
+	margin-top: 10px;
+}
+#forma{
+	margin-top: 15px;
+
+}
+#perf{
+	width: 70px;
+	height: 70px;
+}
+#informacio{
+	width: 70px;
+	height: 70px;
+	float: left;
+	display: inline-block;
+	margin-right: 15px;
+	margin-top: 5px;
+}
+#aut{
+	font-size: 20;
+	margin-top: 25px;
+}
+label.informa{
+	font-size: 15;
+	float: left;
+}
+#username{
+	margin-top: 15px;
+	margin-bottom: 8px;
+}
+#titolimag{
+	margin-top: 50px;
+	font-family: courier;
+	font-size: 20;
+}
+#tab{
+	font-family: courier;
+	font-size: 15;
+	margin-top: 40px;
+}
+#li{
+	font-size: 18;
+}
+div.merie{
+	margin-left: 20px;
+}
+#dani {
+	margin-left: 90px;
+}
+
+#comentari{
+	background-color: #80B1BB;
+	width:80%;
+	margin-left: 5%;
+	padding: 20px 5% 30px 5%;
+	text-align: justify;
+	margin-top: 5px;
+	position: relative;
+}
+#configg{
+	background-color: #619eab;
+	width: 31px;
+	height: 31px;
+	position: relative;
+	float: right;
+	margin-top: 18px;
+}
+#titularcomm{
+	font-size: 20;
+}
+#comcomm{
+	font-size: 20;
+}
+label.userdatecomm{
+	font-size: 15;
+	float: left;
+}
+#textcomm {
+	background-color: #80B1BB;
+	width:80%;
+	margin-left: 5%;
+	padding: 30px 5% 5px 5%;
+	text-align: justify;
+	margin-top: 5px;
+	position: relative;
+}
+#fot2{
+	width: 70px;
+	height: 70px;
+	float: left;
+	display: inline-block;
+	margin-right: 15px;
+}
+#texta{
+	width: 650px;
+	height: 80px;
+}
+
+#sobre {
+ 	position:absolute;
+	margin-left: 368px;
+	margin-top: 7px;
+}

@@ -1,0 +1,22 @@
+{% extends "base.twig" %}
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="assets/css/error.css">
+{% endblock %}
+
+{% block title %} ERROR {% endblock %}
+
+{% block content %}
+    <div id="boxnoti">
+            <div id="noti">
+                <table>
+                    <tr>
+                        <td id = "note">
+                            <h1>ERROR:</h1>
+                            <label class="notif"> {{ error }}</label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+    </div>
+{% endblock %}
+

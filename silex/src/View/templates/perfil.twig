@@ -1,0 +1,137 @@
+{% extends "base.twig" %}
+
+
+{% block title %} Perfil {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="well">
+                    <div>
+                        <img class="img-responsive" src="{{ asset( foto_perfil, 'images') }}" alt="" height="250px" width="250px">
+                    </div>
+                    <br>
+                    <table id="info">
+                        <tr>
+                            <td>
+                                <b><label id="nom">{{ user }}</label></b>
+                            </td>
+                        </tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr>
+                            <td>
+                                <label class="second">{{ publi }} imagenes publicadas</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {% if app.session.get('user') != null %}
+                                {% if app.session.get('user')['id'] == id %}
+                                <a href="/comentaris/{{ id }}">
+                                    {% endif %}
+                                    {% endif %}
+                                    <label class="second">{{ coment }} comentarios</label>
+                                    {% if app.session.get('user') != null %}
+                                    {% if app.session.get('user')['id'] == id %}
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>&nbsp;</label></td>
+                        </tr>
+                        {% if app.session.get('user') != null %}
+                            {% if app.session.get('user')['id'] == id %}
+                                <tr>
+                                    <td>
+                                        <a href="/editaperfil/{{ id }}"><label>Edita tu información</label></a>
+                                    </td>
+                                </tr>
+                            {% endif %}
+                        {% endif %}
+                    </table>
+                </div>
+                <hr>
+                <div id="comentaris">
+                    {% if longitud != 0 %}
+                        <form action="/perfil/{{ id }}" method="POST">
+                            <table id="order">
+                                <tr>
+                                    <td>
+                                        <label>Ordenar publicaciones:</label>
+                                    </td>
+                                    <td>
+                                        <select name="taskOption">
+                                            <option value="1">Fecha de creación</option>
+                                            <option value="2">Numero de likes</option>
+                                            <option value="3">Numero de comentarios</option>
+                                            <option value="4">Numero de visualizaciones</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="submit" value="Aplicar cambios">
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                        {% for i in 0..(longitud - 1) %}
+                            <div id="comentaris">
+                                <div id="coment">
+
+                                    <h1><a href="/imageviewer/{{ id_fotos[i] }}"> {{ titols_imatges[i] }} </a></h1>
+
+                                    <hr>
+
+                                    <p><span class="glyphicon glyphicon-time"></span> {{ dates_imatges[i] }}</p>
+
+
+                                    <!-- Preview Image -->
+                                    <img class="img-responsive" src="{{ asset( img_paths[i], 'images') }}" alt="">
+                                    <div class="row">
+                                        <p>
+                                        <div class="col-lg-7">
+                                            <a href="
+                                    {% if app.session.get('user') == null %}
+                                        /login
+                                    {% endif %}
+                                    {% if app.session.get('user') != null %}
+                                        /like/perfil/{{ id_fotos[i] }}/{{ id }}
+                                    {% endif %}
+                                        ">Me gusta</a>
+                                        </div>
+                                        </p>
+                                        <p>
+                                        <div class="col-lg-3">
+                                            {{ num_visualitzacions[i] }} visualitzacions
+                                        </div>
+                                        </p>
+                                        <p>
+                                        <div class="col-lg-2">
+                                            {{ num_likes[i] }} likes
+                                        </div>
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <hr>
+
+                        {% endfor %}
+                    {% endif %}
+                    {% if longitud == 0 %}
+                        <div id="comentaris">
+                            <div id="note">
+                                <label>NO TIENE PUBLICACIONES</label>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+

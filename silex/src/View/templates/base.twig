@@ -1,0 +1,114 @@
+<html>
+<head>
+    {% block head %}
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.css"/>
+        <link href="assets/css/blog-post.css" type="text/css" rel="stylesheet"/>
+
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+                integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+                crossorigin="anonymous"></script>
+
+        <!--
+                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+                 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>-->
+        <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+                integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+                crossorigin="anonymous"></script>
+        {% block style %}
+        {% endblock %}
+        {% block scripts %}
+
+        {% endblock %}
+        <title>{% block title %}{% endblock %} - PWgram</title>
+    {% endblock %}
+</head>
+<body>
+{% block header %}
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/ ">PWgram</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/">Inici</a>
+                    </li>
+                    <li>
+                        <a href="/login">Login</a>
+                    </li>
+                    {% if app.session.get('user') == null %}
+                    <li>
+                        <a href="/singup">Registrat</a>
+                    </li>
+                    {% endif %}
+                    <li>
+                        <a href="/publica">Publica</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+{% endblock %}
+<div class="container">
+    <div class="row">
+        {% block sidebar %}
+            {% if app.session.get('user') != null %}
+
+                <div class="col-md-3">
+                    <div style="float: left; padding-right: 1%">
+                        <img style="padding: 10%" src="{{ asset( app.session.get('user')['foto'], 'images') }}"
+                             alt="image" height="90px"
+                             width="90px">
+                    </div>
+                    <div class="well">
+                        <h4>Benvingut <a href="/perfil/{{ app.session.get('user')['id'] }}">{{ app.session.get('user')['username'] }}</a></h4>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <p><a href="/notificacions">Notificacions</a></p>
+                            </div>
+                            <div class="col-lg-6">
+                                <p><a href="/logout">Logout</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endblock %}
+        <div class="col-lg-9">
+        {% block content %}
+        {% endblock %}
+        </div>
+
+    </div>
+
+
+</div>
+<hr>
+{% block footer %}
+    <div class="row">
+        <div class="col-lg-9">
+            <p>Projectes web 2017 - Enric Moriche (ls26957) - Dani Mateu (ls26237) - Maria Chueca (gs22202)</p>
+        </div>
+    </div>
+{% endblock %}
+</body>
+</html>

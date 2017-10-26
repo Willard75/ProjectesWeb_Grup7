@@ -1,0 +1,60 @@
+{% extends "base.twig" %}
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="assets/css/publica.css">
+{% endblock%}
+{% block scripts %}
+    <script src="assets/js/publica.js"></script>
+{%  endblock %}
+{% block title %} Publica {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="well">
+
+                        <div id="formulari3">
+                            <h4>Completa els següents camps</h4>
+                            <form action="/publica" method="POST" enctype="multipart/form-data" name="myForm2" onsubmit="return valida2()">
+                                <table>
+                                    <tr>
+                                        <td>Titular:</td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" name="titol" class="Title" ></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label>Imagen:</label></td>
+                                    </tr>
+                                    <tr></tr><tr></tr><tr></tr>
+                                    <tr id="im" style="display:none;">
+                                        <td>
+                                            <img src="" height="200" alt="Image preview..." class="imag">
+                                        </td>
+                                    </tr>
+                                    <tr></tr><tr></tr>
+                                    <tr>
+                                        <td>
+                                            <input type="file" id="but" name ="imatge" value = "" onchange="previewFile()">
+                                        </td>
+                                    </tr>
+                                    <tr><tr></tr><tr></tr><tr></tr>
+                                    <td><label>Privacidad de la imagen:</label></td>
+                                    </tr>
+                                    <tr></tr><tr></tr><tr></tr>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" name="private" value="1"> Privada
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br><br>
+                                <input type="submit" value="Enviar">
+                            </form>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,32 @@
+{% extends "base.twig" %}
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="assets/css/edita_comentari.css">
+{% endblock%}
+{% block scripts %}
+    <script src="http://www.grup7.com/assets/js/confirm.js"></script>
+{%  endblock %}
+
+{% block title %} Edita Comentari {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="well">
+                    <label id="mess">Modifica tu comentario aqui</label><br><br><br>
+                    <form action="/editacomentari/{{ id_comentari }}" method="POST">
+                        <textarea rows="5" cols="100" id="comenta2" name="comenta2">{{ contingut }}</textarea><br>
+                        <br><br>
+                        <input type="submit" name="modify" value="Enviar">
+                    </form>
+                    <br>
+                    <label id="mess">¿Quieres eliminar este comentario?</label><br><br><br>
+                    <form action="/borracomentari/{{ id_comentari }}" method="POST" onsubmit="return confirma()">
+                        <input type="submit" name="delete" value="Haz click aquí">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

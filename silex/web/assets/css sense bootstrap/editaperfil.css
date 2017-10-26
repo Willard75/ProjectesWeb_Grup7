@@ -1,0 +1,42 @@
+#formulari {
+	background-color: #70A7B3;
+	width:75%;
+	margin-left: 10%;
+	margin-top: 40px;
+	padding: 50px 2.5% 50px 2.5%;
+	padding-bottom: 30px;
+	text-align: center;
+}
+#mess{
+	font-family: courier;
+	text-align: center;
+	font-size: 20;
+}
+table{
+	width:80%; 
+    margin-left:10%; 
+    margin-right:10%;
+}
+td{
+
+	height: 40px;
+}
+label{
+	font-family: courier;
+	text-align: center;
+	font-size: 30;
+}
+#infocont{
+	margin-left: 20px;
+	display: inline-block;
+}
+#info{
+	font-size: 20;
+	font-family: courier;
+}
+#id{
+	display: none;
+}
+#but{
+	width: 300px;
+}

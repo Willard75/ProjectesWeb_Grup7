@@ -1,0 +1,138 @@
+{% extends "base.twig" %}
+{% block scripts %}
+    <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src = "http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src = "https://code.jquery.com/jquery.js"></script>
+    <script src = "http://www.grup7.com/assets/js/mostraimatges.js"></script>
+{%  endblock %}
+{% block title %} Home {% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <!-- Blog Post Content Column -->
+        <div class="col-lg-8">
+            <h1>IMATGES MÉS VISTES</h1>
+            {%  if longitud != 0%}
+                {% for i in 0..(longitudmes - 1) %}
+                    <!-- Title -->
+                    <h1><a href="/imageviewer/{{ id_fotosmes[i] }}"> {{ titols_imatgesmes[i] }} </a></h1>
+                    <!-- Author -->
+                    <p class="lead">
+                        by <a href="/perfil/{{ id_usuarismes[i] }}">{{ noms_usuarismes[i] }}</a>
+                    </p>
+                    <hr>
+                    <!-- Date/Time -->
+                    <p><span class="glyphicon glyphicon-time"></span> {{ dates_imatgesmes[i] }}</p>
+                    <hr>
+                    <!-- Preview Image -->
+                    <img class="img-responsive" src="{{ img_pathsmes[i] }}" alt="">
+                    <div class="row">
+                        <p><div class="col-lg-7">
+                            <a href="
+                                    {% if app.session.get('user') == null %}
+                                        /login
+                                    {% endif %}
+                                    {% if app.session.get('user') != null %}
+                                        /like/home/{{ id_fotosmes[i] }}
+                                    {% endif %}
+                                ">Me gusta</a>
+                        </div></p>
+                        <p><div class="col-lg-3">
+                            {{ num_visualitzacionsmes[i] }} visualitzacions
+                        </div></p>
+                        <p><div class="col-lg-2">
+                            {{ num_likesmes[i] }} likes
+                        </div></p>
+                    </div>
+                    <hr>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+    <h1>ULTIMES IMATGES</h1>
+    {%  if longitud != 0%}
+        {% for i in 0..(5 - 1) %}
+            <div class="container">
+                <div class="row">
+                    <!-- Blog Post Content Column -->
+                    <div class="col-lg-8">
+                            <!-- Blog Post -->
+                            <!-- Title -->
+                            <h1><a href="/imageviewer/{{ id_fotos[i] }}"> {{ titols_imatges[i] }} </a></h1>
+                            <!-- Author -->
+                            <p class="lead">
+                                by <a href="/perfil/{{ id_usuaris[i] }}">{{ noms_usuaris[i] }}</a>
+                            </p>
+                            <hr>
+                            <!-- Date/Time -->
+                            <p><span class="glyphicon glyphicon-time"></span> {{ dates_imatges[i] }}</p>
+                            <hr>
+                            <!-- Preview Image -->
+                            <img class="img-responsive" src="{{ img_paths[i] }}" alt="">
+                            <div class="row">
+                                <p><div class="col-lg-7">
+                                    <a href="
+                                    {% if app.session.get('user') == null %}
+                                        /login
+                                    {% endif %}
+                                    {% if app.session.get('user') != null %}
+                                        /like/home/{{ id_fotos[i] }}
+                                    {% endif %}
+                                ">Me gusta</a>
+                                </div></p>
+                                <p><div class="col-lg-3">
+                                    {{ num_visualitzacions[i] }} visualitzacions
+                                </div></p>
+                                <p><div class="col-lg-2">
+                                    {{ num_likes[i] }} likes
+                                </div></p>
+                            </div>
+                            <hr>
+
+
+                        {%  if aa_longituds[i] != 0%}
+                                <!-- Blog Comments -->
+                                <!-- Posted Comments -->
+                                <!-- Comment -->
+                                <div class="media">
+                                    {% if app.session.get('user') != null %}
+                                    {% if app.session.get('user')['username'] == aa_usuari[i][(aa_longituds[i] - 1)] %}
+                                        <a href="/editacomentari/{{ aa_id_comentaris[i][(aa_longituds[i] - 1)] }}"><div  class="pull-right"><img src="assets/images/pencil_4076.png" height="25px" width="25px" id="herramientas"></div></a>
+                                    {% endif %}
+                                    {% endif %}
+                                    <a href="/perfil/{{ aa_id_usuaris[i][(aa_longituds[i] - 1)] }}" class="pull-left" href="/perfil/{{ aa_id_usuaris[i][(aa_longituds[i] - 1)] }}">
+                                        <img class="media-object" src="{{ aa_fotos_perfil[i][(aa_longituds[i] - 1)] }}" alt="" height="64px" width="64px">
+                                    </a>
+                                    <div class="media-body">
+                                        <h4 class="media-heading"><a href="/perfil/{{ aa_id_usuaris[i][(aa_longituds[i] - 1)] }}"> {{ aa_usuari[i][(aa_longituds[i] - 1)] }}</a></h4>
+                                        {{ aa_com[i][(aa_longituds[i] - 1)] }}
+                                    </div>
+                                </div>
+                        {% endif %}
+
+                        <hr>
+                        <!-- CONTROLADOR D'USUARI -->
+                        {% if app.session.get('user') != null %}
+                        {% if ha_comentat[i] == 0 %}
+
+                                <div class="well">
+                                    <h4>Comenta</h4>
+                                    <form action="/comenta/home/{{ id_fotos[i] }}" method="POST" >
+                                        <div class="form-group">
+                                            <textarea class="form-control" rows="3" name="comenta"></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Enviar</button>
+                                    </form>
+                                </div>
+                        {% endif %}
+                        {% endif %}
+                    </div>
+                    </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <a class="button" id="mesImatges"><label>Mostra més</label></a>
+
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.twig" %}
+{% block title %} Comentaris {% endblock %}
+{% block content %}
+    {%  if longitud != 0%}
+        {% for i in 0..(longitud - 1) %}
+            <div class="container">
+                <div class="row">
+                    <!-- Blog Post Content Column -->
+                    <div class="col-lg-8">
+                                <div class="media">
+                                        <a href="/editacomentari/{{ a_id[i] }}"><div  class="pull-right"><img src= "{{ asset( "assets/images/pencil_4076.png", 'images') }}" height="25px" width="25px" id="herramientas"></div></a>
+
+                                    <a href="/perfil/{{ id_user }}" class="pull-left">
+                                        <img class="media-object" src="{{ asset( img, 'images') }}" alt="" height="64px" width="64px">
+                                    </a>
+                                    <div class="media-body">
+                                        <h4 class="media-heading"><a href="/perfil/{{ id_user }}"> {{ nom }}</a></h4>
+                                        {{ a_com[i] }}
+                                    </div>
+                                </div>
+                                <hr>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
+

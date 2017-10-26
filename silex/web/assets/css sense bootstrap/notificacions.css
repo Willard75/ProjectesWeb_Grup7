@@ -1,0 +1,27 @@
+#boxnoti {
+	background-color: #70A7B3;
+	width:75%;
+	margin-left: 11.5%;
+	margin-top: 40px;
+	padding: 50px 1% 50px 1%;
+	padding-bottom: 30px;
+	text-align: center;
+}
+#noti {
+	background-color: #90BBC4;
+	width:80%;
+	margin: 0 0 20px 5%;
+	padding: 40px 5% 40px 5%;
+	text-align: justify;
+	position: relative;
+}
+label.notif{
+	font-size: 20;
+}
+#te {
+	width: 700px;
+}
+#note {
+	text-align: center;
+	padding-left: 300px;
+}

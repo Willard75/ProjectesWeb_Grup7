@@ -1,0 +1,64 @@
+{% extends "base.twig" %}
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="assets/css/editafoto.css">
+{% endblock%}
+{% block scripts %}
+    <script src="http://www.grup7.com/assets/js/publica.js"></script>
+    <script src="http://www.grup7.com/assets/js/confirm.js"></script>
+{% endblock %}
+
+{% block title %} Edita Foto {% endblock %}
+
+{% block content %}
+    <div id="formulari3">
+        <label id="mess"><b>Modifica tu foto aqui:</b></label><br><br>
+        <form action="/modificafoto/{{ id }}" method="POST" enctype="multipart/form-data" name="myForm2" onsubmit="return valida3()">
+            <table id="table3">
+                <tr>
+                    <td><label>Titular:</label></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="titol" size="80" value="{{ titol }}"></td>
+                </tr>
+                <tr>
+                    <td><label>Imagen:</label></td>
+                </tr>
+                <tr></tr><tr></tr><tr></tr>
+                <tr id="im">
+                    <td>
+                        <img src="{{ asset( path, 'images') }}" height="200" alt="Image preview..." class="imag">
+                    </td>
+                </tr>
+                <tr></tr><tr></tr>
+                <tr>
+                    <td>
+                        <input type="file" id="but" name ="imatge" value = "" onchange="previewFile()">
+                    </td>
+                </tr>
+                <tr><tr></tr><tr></tr><tr></tr>
+                <td><label>Privacidad de la imagen:</label></td>
+                </tr>
+                <tr></tr><tr></tr><tr></tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" name="private" value="1"
+                        {% if private == 1 %}
+                            checked
+                        {% endif %}
+                        > Privada
+                    </td>
+                </tr>
+            </table>
+            <br><br>
+            <input type="submit" value="Enviar">
+        </form>
+            <br><br>
+            <label id="mess"><b>¿Quieres eliminar esta foto?</b></label><br><br><br>
+            <form action="/borrafoto/{{ id }}" method="POST" onsubmit="return confirma()">
+                <input type="submit" name="delete" value="Haz click aquí">
+            </form>
+        </form>
+    </div>
+
+{% endblock %}
+

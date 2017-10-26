@@ -1,0 +1,39 @@
+#user {
+	background-color: #70A7B3;
+	width:90%;
+	height: 300px;
+	margin-left: 5%;
+	margin-top: 40px;
+	padding: 1px 0 50px 0;
+	padding-bottom: 50px;
+	text-align: center;
+}
+#blo {
+	background-color: #90BBC4;
+	width:90%;
+	height: 250px;
+	margin-left: 5%;
+	text-align: justify;
+	margin-top: 50px;
+	position: relative;
+}
+#im{
+	width: 90px;
+	height: 90px;
+	float: left;
+	display: inline-block;
+	margin-right: 15px;
+}
+#nom{
+	font-size: 50;
+}
+#info {
+	margin-left: 300px;
+}
+label.second {
+	font-size: 20;
+}
+#order {
+	margin-left: 23%;
+	margin-top: 50px;
+}

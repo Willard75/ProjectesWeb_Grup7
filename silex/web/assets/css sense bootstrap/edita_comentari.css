@@ -1,0 +1,25 @@
+#formulari3 {
+	background-color: #70A7B3;
+	width:55%;
+	margin-left: 20%;
+	margin-top: 40px;
+	padding: 50px 2.5% 50px 2.5%;
+	padding-bottom: 30px;
+	text-align: center;
+}
+label{
+	font-family: courier;
+	text-align: center;
+	font-size: 30;
+}
+#mess{
+	font-family: courier;
+	text-align: center;
+	font-size: 20;
+}
+
+#comenta2{
+	margin: 0px; 
+	width: 655px; 
+	height: 80px;
+}

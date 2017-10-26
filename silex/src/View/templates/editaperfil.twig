@@ -1,0 +1,53 @@
+{% extends "base.twig" %}
+
+{% block scripts %}
+    <script src="assets/js/singup.js"></script>
+{% endblock %}
+{% block title %} Edita Perfil {% endblock %}
+
+
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="well">
+                    <label id="mess">Modifica tu información de contacto:</label><br><br><br>
+                    <center><img src="{{ asset( a_img, 'images') }}" height="200" alt="Image preview..."></center><br><br>
+                    <form action="editaperfil" method="POST" name="myForm" onsubmit="return valida()">
+                        <table>
+                            <tr>
+                                <td><label>Imagen de perfil:</label></td>
+                                <td><input type="file" id="but" onchange="previewFile()"></td>
+                            </tr>
+                            <tr>
+                                <td><label>Usuario:</label></td>
+                                <td><input type="text" name="username" maxlength="20" value="{{ a_nom }}"></td>
+                            </tr>
+                            <tr>
+                                <td><label>Email:</label></td>
+                                <td><input type="text" name="mail" value="{{ a_email }}"></td>
+                            </tr>
+                            <tr>
+                                <td><label>Fecha de nacimiento:&nbsp;</label></td>
+                                <td><input type="date" name="date" value="{{ a_data }}"></td>
+                            </tr>
+                            <tr>
+                                <td><label>Contraseña:</label></td>
+                                <td><input type="password" name="password">&nbsp;<div id="infocont"><a onclick="myFunction()"><em><label id="info">info</label></em></a></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label>Confirma contraseña:&nbsp;</label></td>
+                                <td><input type="password" name="passwordconf"></td>
+                            </tr>
+                        </table>
+                        <br><br>
+                        <input type="submit" value="Enviar">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

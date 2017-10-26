@@ -1,0 +1,102 @@
+{% extends "base.twig" %}
+{% block style %}
+{% endblock%}
+{% block scripts %}
+    <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src = "http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src = "https://code.jquery.com/jquery.js"></script>
+    <script src="http://www.grup7.com/assets/js/mostracomentaris.js"></script>
+{%  endblock %}
+
+{% block title %} Visualitzador {% endblock %}
+
+
+
+{% block content %}
+    <a href="/">
+        <div id="close">
+            <img src=" {{ asset( "assets/images/close.png", 'images') }}" height="30px" width="30px" id="herramientas">
+        </div>
+    </a>
+    <div id="imag">
+        <table id="forma">
+            <tr>
+                <td>
+                    <div id="foto">
+                        {% if app.session.get('user') != null %}
+                            {% if app.session.get('user')['id'] == id_user_imatge %}
+                                <a href="/editafoto/{{ id }}">
+                                    <img id="sobre"src="{{ asset( "assets/images/pencil_4076.png", 'images') }}" height="25px" width="25px" id="herramientas">
+                                </a>
+                            {% endif %}
+                        {% endif %}
+                        <img src="{{ asset( img_path, 'images') }}" alt="image" height="300px" width="400px">
+                    </div>
+                </td>
+                <td>
+                    <div id="info">
+                        <div id="informacio">
+                            <img src="{{ asset( imatge_usuari, 'images') }}" alt="image" height="70px" width="70px">
+                        </div>
+                        <div id="username">
+                            <a href="/perfil/{{ id_user_imatge }}"><b><label id="aut">{{ nom_usuari }}</label></b></a><br>
+                        </div>
+                        <label class="informa">Hace {{ dies }} dias</label>
+                        <div id="titolimag">{{ titular }}</div>
+                        <table id="tab">
+                            <tr>
+                                <td id="li">
+                                    <a href="
+                                    {% if app.session.get('user') == null %}
+                                        /login
+                                    {% endif %}
+                                    {% if app.session.get('user') != null %}
+                                        /like/imageviewer/{{ id }}
+                                    {% endif %}
+                                    ">Me gusta</a>
+                                </td>
+                                <td>
+                                    <div class="merie" id="dani">{{ views }} views</div>
+                                </td>
+                                <td>
+                                    <div class="merie">{{ likes }} likes</div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </table><br>
+        <div id="div_comentaris">
+        {% if num_coment != 0 %}
+            {% for i in 0..(num_coment - 1) %}
+                <div id="comentari">
+                    {% if app.session.get('user') != null %}
+                        {% if app.session.get('user')['id'] == a_id_user_com[i] %}
+                            <a href="/editacomentari/{{ a_id_com[i] }}"><div id="config"><img src="{{ asset( "assets/images/pencil_4076.png", 'images') }}" height="25px" width="25px" id="herramientas"></div></a>
+                        {% endif %}
+                    {% endif %}
+                    <div id="fot2">
+                        <img src="{{ asset( a_user_img[i], 'images') }}" alt="image" height="70px" width="70px">
+                    </div>
+                    <a href="/perfil/{{ a_id_user_com[i] }}"><b><label id="titularcomm">{{ a_user_com[i] }}</label></b></a><br><br>
+                    <label id="comcomm">{{ a_contingut[i] }}</label>
+                </div>
+            {% endfor %}
+        {% endif %}
+        </div>
+        <a class="button" id="{{ id }}"><label>Mostra més</label></a>
+        {% if app.session.get('user') != null %}
+            {% if ha_comentat == 0 %}
+                <div id="textcomm">
+                    <form action="/comenta/imageviewer/{{ id }}" method="POST">
+                        <textarea rows="4" cols="50" id="texta" name="comenta"></textarea>
+                        <br><br>
+                        <input type="submit" value="Enviar">
+                    </form>
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+{% endblock %}
+

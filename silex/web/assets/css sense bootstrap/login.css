@@ -1,0 +1,37 @@
+#formulari2 {
+	background-color: #70A7B3;
+	width:45%;
+	margin-left: 25%;
+	margin-top: 40px;
+	padding: 50px 2.5% 50px 2.5%;
+	padding-bottom: 30px;
+	text-align: center;
+}
+#mess2{
+	font-family: courier;
+	text-align: center;
+	font-size: 30;
+}
+table{
+	width:80%; 
+    margin-left:10%; 
+    margin-right:10%;
+}
+#table2{
+	width:50%; 
+    margin-left:25%; 
+    margin-right:25%;
+}
+td{
+
+	height: 40px;
+}
+#caixa2 {
+	background-color: #70A7B3;
+	width:55%;
+	margin-left: 20%;
+	margin-top: 40px;
+	padding: 30px 2.5% 50px 2.5%;
+	padding-bottom: 30px;
+	text-align: center;
+}

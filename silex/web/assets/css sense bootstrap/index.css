@@ -1,0 +1,182 @@
+body{
+	background-color: #A0C4CC;
+}
+
+h1 {
+	font-size: 60;
+	font-family: courier;
+	text-align: center;
+	margin-top: 30px;
+}
+#menu {
+	background-color: #70A7B3;
+	width:90%;
+	height: 60px;
+	margin-left: 5%;
+	display:flex;
+}
+#titol{
+	padding: 0 28% 0 28%;
+}
+#logejat {
+	background-color: #70A7B3;
+	float: right;
+	margin-top: 5px;
+	margin-right: 5%;
+	display: block;
+	font-size: 25;
+	font-family: courier;
+	padding: 10px 2% 10px 2%;
+	text-align: center;
+}
+#logout{
+	font-size: 20;
+	font-family: courier;
+}
+div.menu_button{
+	padding: 10px 5% 0 5%;
+	font-family: courier;
+	text-align: center;
+	font-size: 30;
+}
+div.selected{
+	padding: 10px 5% 0 5%;
+	font-family: courier;
+	text-align: center;
+	font-size: 30;
+	text-decoration: underline;
+}
+#inicial{
+	padding-left: 10%;
+}
+#comentaris {
+	background-color: #70A7B3;
+	width:90%;
+	margin-left: 5%;
+	margin-top: 40px;
+	padding: 1px 0 50px 0;
+	padding-bottom: 50px;
+	text-align: center;
+}
+#herramientas{
+	margin: 3px 0 0 3px;
+}
+#config{
+	background-color: #619eab;
+	width: 31px;
+	height: 31px;
+	position: relative;
+	float: right;
+	margin-top: 50px;
+}
+#coment {
+	background-color: #90BBC4;
+	width:80%;
+	margin-left: 5%;
+	padding: 40px 5% 50px 5%;
+	text-align: justify;
+	margin-top: 50px;
+	position: relative;
+}
+
+/* unvisited link */
+a:link {
+    text-decoration: none;
+    color: black;
+}
+
+/* visited link */
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+/* mouse over link */
+a:hover {
+    background-color: #90BBC4;
+    color: black;
+}
+
+/* selected link */
+a:active {
+    text-decoration: underline;
+    color: black;
+}
+#titular{
+	font-size: 40;
+}
+#fot{
+	width: 90px;
+	height: 90px;
+	float: left;
+	display: inline-block;
+	margin-right: 15px;
+}
+#fot2{
+	width: 80px;
+	height: 80px;
+	float: left;
+	display: inline-block;
+	margin-right: 15px;
+}
+#titularcom{
+	font-size: 30;
+}
+#comcom{
+	font-size: 25;
+}
+label{
+	font-family: courier;
+	text-align: center;
+	font-size: 30;
+}
+label.userdate{
+	font-size: 20;
+	float: left;
+}
+label.userdatecom{
+	font-size: 20;
+	float: left;
+}
+label.bot{
+	font-size: 20;
+	float: left;
+	padding-left: 8%;
+}
+label.botcont{
+	font-size: 20;
+	float: left;
+	padding-left: 40%;
+}
+#comenta {
+	margin: 0px; 
+	width: 1015px; 
+	height: 87px;
+}
+#text {
+	background-color: #80B1BB;
+	width:80%;
+	margin-left: 5%;
+	padding: 20px 5% 30px 5%;
+	text-align: justify;
+	margin-top: 5px;
+	position: relative;
+}
+#textcom {
+	background-color: #80B1BB;
+	width:80%;
+	margin-left: 5%;
+	padding: 30px 5% 5px 5%;
+	text-align: justify;
+	margin-top: 5px;
+	position: relative;
+}
+#footer {
+	background-color: #70A7B3;
+	width:90%;
+	margin-left: 5%;
+	margin-top: 40px;
+	padding: 1px 0 1px 0;
+	text-align: center;
+	font-family: courier;
+}
